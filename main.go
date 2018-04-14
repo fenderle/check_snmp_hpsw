@@ -1,7 +1,7 @@
 package main
 
 import (
-	"check_snmp_hpsw/cmd"
+	"github.com/fenderle/check_snmp_hpsw/cmd"
 )
 
 func main() {
