@@ -1,5 +1,7 @@
 # check_snmp_hpsw
 
+[![Build Status](https://travis-ci.org/fenderle/check_snmp_hpsw.svg?branch=master)](https://travis-ci.org/fenderle/check_snmp_hpsw)
+
 check_snmp_hpsw is a nagios plugin to check a HP Procurve/Aruba switches for
 errors using SNMP queries. The plugin is build in golang to make it dependency
 free and easy to deploy.
