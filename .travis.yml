@@ -3,20 +3,19 @@ go:
   - 1.x.x
 
 env:
-  arch:
-    - "386"
-    - "amd64"
+  - ARCH=386
+  - ARCH=amd64
 
 before_install:
   - go get github.com/mitchellh/gox
 
 script:
   - go get -t -v ./...
-  - mkdir -p linux-${arch}
-  - cp README.md LICENSE linux-${arch}
-  - gox -osarch="linux/${arch}" -output="{{.OS}}-{{.Arch}}/check_snmp_hpsw" ./...
-  - tar cvzf check_snmp_hpsw-linux-${arch}.tar.gz linux-${arch}
-  - zip -r check_snmp_hpsw-linux-${arch}.zip linux-${arch}
+  - mkdir -p linux-${ARCH}
+  - cp README.md LICENSE linux-${ARCH}
+  - gox -osarch="linux/${ARCH}" -output="{{.OS}}-{{.Arch}}/check_snmp_hpsw" ./...
+  - tar cvzf check_snmp_hpsw-linux-${ARCH}.tar.gz linux-${ARCH}
+  - zip -r check_snmp_hpsw-linux-${ARCH}.zip linux-${ARCH}
 
 deploy:
   provider: releases
