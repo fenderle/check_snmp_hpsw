@@ -2,8 +2,7 @@
 {
     "files.exclude": {
         "**/.git": true,
-        "**/.glide": true,
-        "build": true,
+        "**/.glide": true
     },
 
     "go.lintTool": "gometalinter"
