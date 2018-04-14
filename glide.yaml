@@ -1,0 +1,14 @@
+package: .
+excludeDirs:
+- check_snmp_hpsw
+import:
+- package: github.com/soniah/gosnmp
+  version: 553a7bda3c6dcafd1762f2176ef6cdddd28b6a22
+- package: github.com/olorin/nagiosplugin
+  version: ^1.2.0
+- package: github.com/spf13/cobra
+  version: ^0.0.2
+  subpackages:
+  - cobra
+- package: github.com/spf13/pflag
+  version: ^1.0.0
