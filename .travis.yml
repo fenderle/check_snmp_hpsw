@@ -1,12 +1,22 @@
 language: go
 go:
 - 1.x.x
+
+before_install:
+  - go get github.com/mitchellh/gox
+
+script:
+  - go get -t -v ./...
+  - gox -osarch="linux/i386 linux/amd64" -output="check_snmp_hpsw.{{.OS}}.{{.Arch}}" -ldflags "-X main.Rev=`git rev-parse --short HEAD`" -verbose ./...
+
 deploy:
   provider: releases
+  skip_cleanup: true
   api_key:
     secure: kWn6XPJgc3m6B36cRao+DHSi8vNwVbJvi3VXRLUSHmJj295npu24VDm7QuHr1POKW8KVVPeiycQVJR3nbp8VezLnpreCWubfyuaS+Goz4YtDEzxDevzYVe4py3KqM4MJ+O0b9jXjIDrfh58KqKa7SD798TdCxs+pGHlRZmlOTxkrKwJvBNHKUpA+tRbJCB+gkPQ73XEaUnrLgaItPNWScAh4oNdqMAj/TeabBB/POQtYtHb4WTzV42GY61UCnlnDbrds6jnidIL5Yp1C0CFhIsRKdEiWsHuwCd2Qlg9HSQHtMeinlW13cVhAfA1FhiBpMCuVKiQvsNls1ceqR9fpHrSLFSlzDQXAFzftqM2OBgXb1pyj3TyDxjnEJsrTYE0Sn6Fh49MeHjIbSIh8uvIDwkWeJIGbTHafvnwWlbX7PfgNXrMmdofQc+rjxzKSXrUHus29T3WTB2rEZyY++A17S/r8IQdqhbtPmoi4ZUCeaRCwfOOrUCtbblQSn22o4Gcm81XmRU1v9ncHVs5JX8gE16ChTI4+EK1mEvjyFlpqd4QPBABoEJ23DVxKHDzfpRyoljfGvx1dWJbiulV+1Wcu/0b4Hrm12r4AC6Sd+74EVZEMFfXwXZmyiq+gu/xxKRMlMzbO/oE9v02OH2/WXXC2keJxMm6hVsOKsK0T7SZO17E=
-  file: build/check_snmp_hpsw
-  skip_cleanup: true
+  file:
+    - check_snmp_hpsw.linux.i386
+    - check_snmp_hpsw.linux.amd64
   on:
     repo: fenderle/check_snmp_hpsw
     tags: false
