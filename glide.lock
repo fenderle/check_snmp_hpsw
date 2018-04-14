@@ -1,14 +1,16 @@
-hash: a84cdfe160b6f2ed2110b33d94808d9b0835a2a7d398cdf4ea271a58861aca09
-updated: 2018-04-06T13:00:14.737646+02:00
+hash: 58c8067f505d9731739d046600d65dcafde77a98cd1e90e0116253a44449c6ed
+updated: 2018-04-14T19:53:26.398968+02:00
 imports:
+- name: github.com/inconshreveable/mousetrap
+  version: 76626ae9c91c4f2a10f34cad8ce83ea42c93bb75
 - name: github.com/olorin/nagiosplugin
   version: 45f5074f5e843de86ff40fd12ee0628d0e6a9780
 - name: github.com/soniah/gosnmp
-  version: 553a7bda3c6dcafd1762f2176ef6cdddd28b6a22
+  version: 3975b03c08fe68061d75785606a0ae018cc1ef79
 - name: github.com/spf13/cobra
   version: a1f051bc3eba734da4772d60e2d677f47cf93ef4
   subpackages:
   - cobra
 - name: github.com/spf13/pflag
-  version: e57e3eeb33f795204c1ca35f56c44f83227c6e66
+  version: 583c0c0531f06d5278b7d917446061adc344b5cd
 testImports: []

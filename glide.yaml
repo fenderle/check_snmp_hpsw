@@ -1,9 +1,7 @@
-package: .
-excludeDirs:
-- check_snmp_hpsw
+package: github.com/fenderle/check_snmp_hpsw
 import:
 - package: github.com/soniah/gosnmp
-  version: 553a7bda3c6dcafd1762f2176ef6cdddd28b6a22
+  version: 3975b03c08fe68061d75785606a0ae018cc1ef79
 - package: github.com/olorin/nagiosplugin
   version: ^1.2.0
 - package: github.com/spf13/cobra
