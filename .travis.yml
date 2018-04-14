@@ -31,4 +31,4 @@ deploy:
     - check_snmp_hpsw-${OS}-${ARCH}.zip
   on:
     repo: fenderle/check_snmp_hpsw
-    tags: false
+    tags: true
