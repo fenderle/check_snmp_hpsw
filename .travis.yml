@@ -18,8 +18,8 @@ script:
   - mkdir -p ${OS}-${ARCH}
   - cp README.md LICENSE ${OS}-${ARCH}
   - gox -osarch="${OS}/${ARCH}" -output="{{.OS}}-{{.Arch}}/check_snmp_hpsw" ./...
-  - tar cvzf check_snmp_hpsw-linux-${ARCH}.tar.gz linux-${ARCH}
-  - zip -r check_snmp_hpsw-linux-${ARCH}.zip linux-${ARCH}
+  - tar cvzf check_snmp_hpsw-${OS}-${ARCH}.tar.gz ${OS}-${ARCH}
+  - zip -r check_snmp_hpsw-${OS}-${ARCH}.zip ${OS}-${ARCH}
 
 deploy:
   provider: releases
