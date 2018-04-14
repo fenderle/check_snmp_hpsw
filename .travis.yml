@@ -7,7 +7,14 @@ before_install:
 
 script:
   - go get -t -v ./...
-  - gox -osarch="linux/386 linux/amd64" -output="check_snmp_hpsw.{{.OS}}.{{.Arch}}" ./...
+  - mkdir -p linux-386 linux-amd64
+  - cp README.md LICENSE linux-386
+  - cp README.md LICENSE linux-amd64
+  - gox -osarch="linux/386 linux/amd64" -output="{{.OS}}-{{.Arch}}/check_snmp_hpsw" ./...
+  - tar cvzf check_snmp_hpsw-linux-386.tar.gz linux-386
+  - tar cvzf check_snmp_hpsw-linux-amd64.tar.gz linux-amd64
+  - zip -r check_snmp_hpsw-linux-386.zip linux-386
+  - zip -r check_snmp_hpsw-linux-amd64.zip linux-amd64
 
 deploy:
   provider: releases
@@ -15,8 +22,10 @@ deploy:
   api_key:
     secure: kWn6XPJgc3m6B36cRao+DHSi8vNwVbJvi3VXRLUSHmJj295npu24VDm7QuHr1POKW8KVVPeiycQVJR3nbp8VezLnpreCWubfyuaS+Goz4YtDEzxDevzYVe4py3KqM4MJ+O0b9jXjIDrfh58KqKa7SD798TdCxs+pGHlRZmlOTxkrKwJvBNHKUpA+tRbJCB+gkPQ73XEaUnrLgaItPNWScAh4oNdqMAj/TeabBB/POQtYtHb4WTzV42GY61UCnlnDbrds6jnidIL5Yp1C0CFhIsRKdEiWsHuwCd2Qlg9HSQHtMeinlW13cVhAfA1FhiBpMCuVKiQvsNls1ceqR9fpHrSLFSlzDQXAFzftqM2OBgXb1pyj3TyDxjnEJsrTYE0Sn6Fh49MeHjIbSIh8uvIDwkWeJIGbTHafvnwWlbX7PfgNXrMmdofQc+rjxzKSXrUHus29T3WTB2rEZyY++A17S/r8IQdqhbtPmoi4ZUCeaRCwfOOrUCtbblQSn22o4Gcm81XmRU1v9ncHVs5JX8gE16ChTI4+EK1mEvjyFlpqd4QPBABoEJ23DVxKHDzfpRyoljfGvx1dWJbiulV+1Wcu/0b4Hrm12r4AC6Sd+74EVZEMFfXwXZmyiq+gu/xxKRMlMzbO/oE9v02OH2/WXXC2keJxMm6hVsOKsK0T7SZO17E=
   file:
-    - check_snmp_hpsw.linux.386
-    - check_snmp_hpsw.linux.amd64
+    - check_snmp_hpsw-linux-386.tar.gz
+    - check_snmp_hpsw-linux-386.zip
+    - check_snmp_hpsw-linux-amd64.tar.gz
+    - check_snmp_hpsw-linux-amd64.zip
   on:
     repo: fenderle/check_snmp_hpsw
     tags: false
