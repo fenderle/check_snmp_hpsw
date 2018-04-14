@@ -22,7 +22,7 @@ The project uses vendoring with `glide` and of course requires a recent version 
 ### Installing
 
 ```bash
-go get https://github.com/fenderle/check_snmp_hpsw
+go get github.com/fenderle/check_snmp_hpsw
 ```
 
 You will find the compiled binary in your `$GOPATH/bin` folder.
