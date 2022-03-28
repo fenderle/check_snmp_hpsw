@@ -1,3 +1,5 @@
+**This repository is no longer maintained and read-only.**
+
 # check_snmp_hpsw
 
 [![Build Status](https://travis-ci.org/fenderle/check_snmp_hpsw.svg?branch=master)](https://travis-ci.org/fenderle/check_snmp_hpsw)
